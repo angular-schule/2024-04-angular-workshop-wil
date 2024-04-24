@@ -1,5 +1,6 @@
-<p>dashboard works!</p>
-
-<pre>
-{{ books | json }}
-</pre>
+@for(b of books; track b) {
+  <app-book [book]="b" />
+}
+<!-- <pre>
+{{ books | json | uppercase }}
+</pre> -->
