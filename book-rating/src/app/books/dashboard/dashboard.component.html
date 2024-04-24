@@ -1,5 +1,7 @@
 @for(b of books; track b) {
-  <app-book [book]="b" />
+  <div [ngClass]="{ highlightBook: $even }">
+    <app-book [book]="b" />
+  </div>
 }
 <!-- <pre>
 {{ books | json | uppercase }}
