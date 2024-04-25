@@ -10,14 +10,8 @@
       </div>
       <p>{{ book.description }}</p>
 
-      <!-- ANTI PATTERNS DELUXE -->
-      <!--
-        1. Logik im Template
-        2. Single responsibility principle (SRP) verletzt
-        3. Immutability verletzt
-      -->
-      <button (click)="book.rating = book.rating - 1" class="btn btn-primary me-2">-1</button>
-      <button (click)="book.rating = book.rating + 1"class="btn btn-primary">+1</button>
+      <button (click)="doRateDown()" class="btn btn-primary me-2">-1</button>
+      <button (click)="doRateUp()"class="btn btn-primary">+1</button>
     </div>
   </div>
 }

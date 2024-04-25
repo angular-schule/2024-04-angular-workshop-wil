@@ -1,6 +1,9 @@
 @for(b of books; track b) {
   <div [ngClass]="{ highlightBook: $even }">
-    <app-book [book]="b" />
+    <app-book
+      [book]="b"
+      (rateUp)="doRateUp($event)"
+      (rateDown)="doRateDown($event)" />
   </div>
 }
 <!-- <pre>
