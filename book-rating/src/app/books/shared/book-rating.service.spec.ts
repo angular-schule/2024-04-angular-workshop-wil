@@ -30,6 +30,7 @@ describe('BookRatingService', () => {
     expect(ratedBook.rating).toBe(2);
   });
 
+  // JIRA-1467: Ratings like on Amazon
   it('should not be allowed to have a rating greater than 5', () => {
     book.rating = 5;
     const ratedBook = service.rateUp(book);
