@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Book } from '../shared/book';
 import { JsonPipe, NgClass, UpperCasePipe } from '@angular/common';
 import { BookComponent } from '../book/book.component';
@@ -9,7 +9,8 @@ import { BookRatingService } from '../shared/book-rating.service';
   standalone: true,
   imports: [JsonPipe, UpperCasePipe, BookComponent, NgClass],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
 
@@ -18,6 +19,10 @@ export class DashboardComponent {
 
   // gute alte Syntax
   // constructor(private br2: BookRatingService) {}
+
+  constructor() {
+    // setTimeout(() => this.books = [], 3000);
+  }
 
   // 🦆
   books: Book[] = [{
