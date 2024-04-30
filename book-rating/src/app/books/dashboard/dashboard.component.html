@@ -1,4 +1,6 @@
-<app-book-create />
+<app-book-create
+  (create)="addBook($event)"
+/>
 
 @for(b of books; track b) {
   <div [ngClass]="{ highlightBook: $even }">
