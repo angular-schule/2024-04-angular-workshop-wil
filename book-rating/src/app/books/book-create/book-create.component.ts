@@ -44,6 +44,11 @@ export class BookCreateComponent {
 
   submitForm() {
 
+    if (this.bookForm.invalid) {
+      this.bookForm.markAllAsTouched();
+      return;
+    }
+
     const newBook: Book = {
       ...this.bookForm.getRawValue(),
       rating: 1
