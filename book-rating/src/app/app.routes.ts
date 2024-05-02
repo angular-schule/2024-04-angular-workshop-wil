@@ -4,7 +4,7 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'books' },
-  { path: 'books', component: DashboardComponent },
-  { path: 'books/:isbn', component: BookDetailsComponent },
+  { path: 'books', component: DashboardComponent, title: 'Dashboard' },
+  { path: 'books/:isbn', component: BookDetailsComponent, title: 'Book Details' },
   // { path: '**', component: NotFoundComponent }
 ];
