@@ -1,3 +1,4 @@
+/* eslint-disable @ngrx/on-function-explicit-return-type */
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { BookActions } from './book.actions';
 import { Book } from '../shared/book';
@@ -16,9 +17,23 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(BookActions.loadBooks, state => state),
-  on(BookActions.loadBooksSuccess, (state, action) => state),
-  on(BookActions.loadBooksFailure, (state, action) => state),
+
+  on(BookActions.loadBooks, state => ({
+    ...state,
+    loading: true
+  })),
+
+  on(BookActions.loadBooksSuccess, (state, { books }) => ({
+    ...state,
+    loading: false,
+    books
+  })),
+
+  on(BookActions.loadBooksFailure, state => ({
+    ...state,
+    loading: false,
+    books: []
+  }))
 );
 
 export const bookFeature = createFeature({
