@@ -1,5 +1,11 @@
-<pre>{{ book$() | json }}</pre>
+@if(book$(); as book) {
+
+  <h2>{{ book.title }}</h2>
+  <p>{{ book.description }}</p>
+
+}
 
 
 <a routerLink="/books/9783864909467">Gehe zu Angular</a><br>
 <a routerLink="/books/9783864905520">Gehe zu React</a><br>
+<a routerLink="/books/404">Gehe zu 404</a><br>
