@@ -23,7 +23,9 @@ export class GamescoreComponent {
 
     /******************************/
 
-    
+    this.score$
+
+
     /******************************/
 
     this.score$.subscribe({
