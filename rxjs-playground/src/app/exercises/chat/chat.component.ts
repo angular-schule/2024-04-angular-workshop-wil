@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subject, ReplaySubject, merge, concat, race, forkJoin, EMPTY, map } from 'rxjs';
+import { Subject, ReplaySubject, merge, concat, race, forkJoin, EMPTY, map, zip, take } from 'rxjs';
 import { HistoryComponent } from '../../shared/history/history.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
 
@@ -38,12 +38,16 @@ export class ChatComponent {
 
     /**************!!**************/
 
-    merge(
+    zip([
       this.msg.julia$,
       this.msg.georg$,
       this.msg.john$
+    ]).pipe(
+
+      take(1)
+
     ).subscribe({
-      next: e => this.log(e),
+      next: e => this.log(e.toString()),
       error: err => this.log('❌ ERROR: ' + err),
       complete: () => this.log('✅ All members left')
     });
