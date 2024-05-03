@@ -2,7 +2,7 @@
   (create)="addBook($event)"
 />
 
-@for(b of books; track b) {
+@for(b of books$(); track b) {
   <div [ngClass]="{ highlightBook: $even }">
     <app-book
       [book]="b"
@@ -10,6 +10,11 @@
       (rateDown)="doRateDown($event)" />
   </div>
 }
+
+@if(loading$()) {
+  <h3>Loading...</h3>
+}
+
 <!-- <pre>
 {{ books | json | uppercase }}
 </pre> -->
